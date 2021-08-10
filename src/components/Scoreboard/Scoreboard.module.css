@@ -1,0 +1,16 @@
+.scoreboard {
+    background-color: #65c1c9;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.count {
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+    color: #000;
+}
+
+.maxCount {
+    color: #ff0000;
+}
