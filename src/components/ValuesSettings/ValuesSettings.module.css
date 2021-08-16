@@ -1,0 +1,23 @@
+.settingsItem {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+}
+
+.settingsItem:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.titleValue {
+    font-weight: bold;
+    display: inline-block;
+    color: #65c1c9;
+}
+
+.inputValue {
+    border: 1px solid #65c1c9;
+    display: inline-block;
+    width: 80px;
+    height: 24px;
+    border-radius: 4px;
+}
