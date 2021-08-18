@@ -1,25 +1,23 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from './CountSettings.module.css';
 import "../../App.css";
 import {Button} from "../Button/Button";
 import {ValuesSettings} from "../ValuesSettings/ValuesSettings";
 
 
-// export type PropsType = {
-//     count: number
-//     maxCount: boolean
-// }
+export type PropsType = {
+    applySettingsCallback: () => void
+    getValuesCallback: (values: any) => void
+}
 
-export const CountSettings = () => {
-    const setValues = () => {
+export const CountSettings = (props: PropsType) => {
 
-    };
 
     return (
         <div className="countContainer">
-            <ValuesSettings/>
+            <ValuesSettings getValues={props.getValuesCallback} />
             <div className="controls">
-                <Button callback={setValues} value={"Set"} isDisabled={false} />
+                <Button callback={() => props.applySettingsCallback} value={"Set"} isDisabled={false} />
             </div>
         </div>
     )

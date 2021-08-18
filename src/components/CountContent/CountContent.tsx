@@ -5,14 +5,16 @@ import {useState} from "react";
 import {Scoreboard} from "../Scoreboard/Scoreboard";
 import {Button} from "../Button/Button";
 
-// export type PropsType = {
-//     count: number
-//     maxCount: boolean
-// }
+export type PropsType = {
+    // count: number
+    // maxCount: boolean
+    startValue: number
+    maxValue: number
+}
 
-export const CountContent = () => {
-    const startValue = 0;
-    let maxValue = 5;
+export const CountContent = (props: PropsType) => {
+    const startValue = props.startValue;
+    let maxValue = props.maxValue;
     let [count, setCount] = useState<number>(startValue);
 
     const incrementCount = () => {
