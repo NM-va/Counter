@@ -1,19 +1,9 @@
-import React, {useState} from "react";
-import styles from "./CountSettings.module.css";
+import React from "react";
 import "../../App.css";
 import {Button} from "../Button/Button";
 import {ValuesSettings} from "../ValuesSettings/ValuesSettings";
 
 
-// export type PropsType = {
-//     count: number
-//     maxCount: boolean
-// }
-
-// export type SettingsType = {
-//     startValue: number
-//     maxValue: number
-// }
 
 export type PropsType = {
     errorMaxValue: boolean
@@ -33,10 +23,8 @@ export const CountSettings = (props: PropsType) => {
     const setValuesFunc = () => {
         props.applySettingsCallback(props.stateStartValue, props.stateMaxValue);
         toggleDisabled = true;
-        console.log('props.stateStartValue', props.stateStartValue)
     }
 
-    
     return (
         <div className="countContainer">
             <ValuesSettings

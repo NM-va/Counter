@@ -21,20 +21,17 @@ export const CountContent = (props: PropsType) => {
         setCount(startValue)
     }, [startValue])
 
-    console.log('count', count)
 
     const incrementCount = () => {
         count < maxValue && setCount(count + 1);// чтобы не дергать при каждой итерации setCount
         // setCount(count++); //не работает ++count нарушение имьютабельности
         setCount(count + 1);//так правильно, либо создание промежуточной переменной
-        console.log('count inc', count)
     };
-    
+
     const resetCount = () => {
         setCount(startValue);
     };
-    
-    
+
     return (
         <div className="countContainer">
             <Scoreboard count={count}
