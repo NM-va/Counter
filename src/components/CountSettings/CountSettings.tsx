@@ -1,5 +1,5 @@
-import React from 'react';
-import styles from './CountSettings.module.css';
+import React, {useState} from "react";
+import styles from "./CountSettings.module.css";
 import "../../App.css";
 import {Button} from "../Button/Button";
 import {ValuesSettings} from "../ValuesSettings/ValuesSettings";
@@ -10,16 +10,47 @@ import {ValuesSettings} from "../ValuesSettings/ValuesSettings";
 //     maxCount: boolean
 // }
 
-export const CountSettings = () => {
-    const setValues = () => {
+// export type SettingsType = {
+//     startValue: number
+//     maxValue: number
+// }
 
-    };
+export type PropsType = {
+    errorMaxValue: boolean
+    errorStartValue: boolean
+    toggleDisabled: boolean
+    callbackChangeStartValue: (newStartVal: number) => void
+    callbackChangeMaxValue: (newMaxVal: number) => void
+    changeMessageCallback: (newMessage: string) => void
+    applySettingsCallback: (startValue: number, maxValue: number) => void
+    stateStartValue: number
+    stateMaxValue: number
+}
 
+export const CountSettings = (props: PropsType) => {
+    let toggleDisabled = props.toggleDisabled;
+    
+    const setValuesFunc = () => {
+        props.applySettingsCallback(props.stateStartValue, props.stateMaxValue);
+        toggleDisabled = true;
+        console.log('props.stateStartValue', props.stateStartValue)
+    }
+
+    
     return (
         <div className="countContainer">
-            <ValuesSettings/>
+            <ValuesSettings
+                            changeStartValue={props.callbackChangeStartValue}
+                            changeMaxValue={props.callbackChangeMaxValue}
+                            errorMaxValue={props.errorMaxValue}
+                            errorStartValue={props.errorStartValue}
+                            startValue={props.stateStartValue}
+                            maxValue={props.stateMaxValue}
+                            changeMessage={props.changeMessageCallback}
+            />
             <div className="controls">
-                <Button callback={setValues} value={"Set"} isDisabled={false} />
+                <Button callback={setValuesFunc}
+                        value={"Set"} isDisabled={toggleDisabled}/>
             </div>
         </div>
     )

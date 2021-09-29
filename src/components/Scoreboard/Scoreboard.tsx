@@ -3,13 +3,19 @@ import styles from './Scoreboard.module.css';
 
 export type PropsType = {
     count: number
-    maxCount: boolean
+    maxCountFlag: boolean
+    error: boolean
+    message: string
 }
 
 export const Scoreboard = (props: PropsType) => {
+    let fullClassName = `${props.message ? styles.message : styles.count} ${props.maxCountFlag? styles.maxCount : ''} ${props.error? styles.error : ''}`;
+    
     return (
         <div className={styles.scoreboard}>
-            <div className={`${styles.count} ${props.maxCount? styles.maxCount : ''}`}>{props.count}</div>
+            <div className={fullClassName}>
+                 {props.message ? props.message : props.count}
+            </div>
         </div>
     )
 }

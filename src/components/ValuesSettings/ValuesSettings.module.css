@@ -21,3 +21,8 @@
     height: 24px;
     border-radius: 4px;
 }
+
+.error {
+    border-color: #ff0000;
+    color: #ff0000;
+}

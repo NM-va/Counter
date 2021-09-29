@@ -1,4 +1,4 @@
-import styles from './Button.module.css';
+import styles from "./Button.module.css";
 
 export type PropsType = {
     isDisabled: boolean
@@ -7,6 +7,8 @@ export type PropsType = {
 }
 export const Button = (props:PropsType) => {
     return (
-        <button className={styles.btn} disabled={props.isDisabled } onClick={props.callback} >{props.value}</button>
+        <button className={styles.btn} disabled={props.isDisabled } onClick={() => {
+            props.callback()
+        }} >{props.value}</button>
     )
 }
